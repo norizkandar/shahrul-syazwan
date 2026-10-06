@@ -1,0 +1,2827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mohammad Shahrul Syazwan | Project Manager — Smart Academy</title>
+
+  <meta
+    name="description"
+    content="Mohammad Shahrul Syazwan bin Shahrul Sulaiman — Project Manager of Smart Academy."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --red: #ff1e2d;
+      --red-dark: #a8000c;
+      --red-light: #ff4d5a;
+
+      --black: #050505;
+      --black-2: #0b0b0b;
+      --black-3: #111111;
+
+      --white: #ffffff;
+      --gray: #a7a7a7;
+      --gray-dark: #707070;
+
+      --border: rgba(255, 30, 45, 0.18);
+
+      --shadow:
+        0 25px 70px rgba(0, 0, 0, 0.55);
+
+      --radius: 22px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+      z-index: -5;
+
+      background:
+        linear-gradient(
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px
+        );
+
+      background-size: 55px 55px;
+    }
+
+    .red-glow {
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      border-radius: 50%;
+
+      filter: blur(110px);
+
+      pointer-events: none;
+
+      z-index: -4;
+
+      opacity: 0.16;
+    }
+
+    .glow-1 {
+      background: var(--red);
+
+      top: -220px;
+      left: -220px;
+    }
+
+    .glow-2 {
+      background: #ff0000;
+
+      right: -250px;
+      top: 45%;
+    }
+
+    .glow-3 {
+      background: var(--red);
+
+      left: 30%;
+      bottom: -300px;
+    }
+
+    /* =========================
+       LOADER
+    ========================= */
+
+    .loader {
+      position: fixed;
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #250306,
+          #050505 65%
+        );
+
+      z-index: 99999;
+
+      transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+    }
+
+    .loader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-content {
+      text-align: center;
+    }
+
+    .loader-logo {
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 35px;
+      font-weight: 800;
+
+      letter-spacing: 5px;
+    }
+
+    .loader-logo span {
+      color: var(--red);
+    }
+
+    .loader-subtitle {
+      margin-top: 10px;
+
+      font-size: 10px;
+      letter-spacing: 4px;
+
+      color: var(--gray);
+    }
+
+    .loader-bar {
+      width: 240px;
+      height: 3px;
+
+      margin: 25px auto;
+
+      background: #242424;
+
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .loader-bar::after {
+      content: "";
+
+      display: block;
+
+      width: 45%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--red),
+          #ff6973
+        );
+
+      animation: loading 1.3s infinite;
+    }
+
+    @keyframes loading {
+      from {
+        transform: translateX(-120%);
+      }
+
+      to {
+        transform: translateX(320%);
+      }
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 1000;
+
+      background:
+        rgba(5, 5, 5, 0.78);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 18px 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 19px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      color: #aaa;
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      width: 0;
+      height: 2px;
+
+      left: 50%;
+      bottom: -8px;
+
+      transform: translateX(-50%);
+
+      background: var(--red);
+
+      box-shadow:
+        0 0 10px var(--red);
+
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+
+      background: none;
+      border: none;
+
+      color: white;
+
+      font-size: 25px;
+
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      padding:
+        150px
+        25px
+        100px;
+
+      display: flex;
+      align-items: center;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1200px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1.15fr
+        0.85fr;
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .system-badge {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 9px;
+
+      padding:
+        8px
+        14px;
+
+      border:
+        1px solid
+        rgba(255, 30, 45, 0.28);
+
+      background:
+        rgba(255, 30, 45, 0.06);
+
+      border-radius: 50px;
+
+      color: #ff6771;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .system-badge::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #22c55e;
+
+      box-shadow:
+        0 0 12px #22c55e;
+    }
+
+    .hero h1 {
+      margin-top: 25px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size:
+        clamp(
+          38px,
+          5.5vw,
+          70px
+        );
+
+      line-height: 1.08;
+
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      display: block;
+
+      background:
+        linear-gradient(
+          100deg,
+          white,
+          #ff2637
+        );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role {
+      margin-top: 25px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 16px;
+      font-weight: 700;
+
+      color: var(--red);
+
+      letter-spacing: 1px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      margin-top: 18px;
+
+      color: var(--gray);
+
+      font-size: 15px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 13px;
+
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        13px
+        21px;
+
+      border-radius: 11px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      transition: 0.3s;
+    }
+
+    .btn-red {
+      background:
+        linear-gradient(
+          135deg,
+          #d60012,
+          #ff2738
+        );
+
+      color: white;
+
+      box-shadow:
+        0 15px 35px
+        rgba(255,30,45,0.2);
+    }
+
+    .btn-red:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 20px 45px
+        rgba(255,30,45,0.35);
+    }
+
+    .btn-outline {
+      border:
+        1px solid
+        rgba(255,255,255,0.13);
+
+      background:
+        rgba(255,255,255,0.03);
+
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--red);
+
+      color: var(--red);
+
+      transform: translateY(-4px);
+    }
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .profile-card {
+      position: relative;
+
+      width: min(390px, 100%);
+
+      padding: 12px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      border-radius: 28px;
+
+      box-shadow:
+        0 35px 100px
+        rgba(0,0,0,0.65);
+
+      backdrop-filter: blur(15px);
+    }
+
+    .profile-card::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -2px;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--red),
+          transparent 35%,
+          transparent 65%,
+          #6e0008
+        );
+
+      z-index: -1;
+
+      opacity: 0.7;
+    }
+
+    .photo-frame {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #151515,
+          #050505
+        );
+    }
+
+    .real-photo {
+      display: block;
+
+      width: 100%;
+      height: 480px;
+
+      object-fit: cover;
+
+      transition: 0.6s;
+
+      filter:
+        saturate(0.9)
+        contrast(1.05);
+    }
+
+    .profile-card:hover .real-photo {
+      transform: scale(1.035);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.9),
+          transparent 50%
+        );
+    }
+
+    .photo-info {
+      position: absolute;
+
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+    }
+
+    .photo-info small {
+      color: var(--red);
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .photo-info h3 {
+      margin-top: 5px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 18px;
+    }
+
+    .floating-card {
+      position: absolute;
+
+      padding:
+        11px
+        15px;
+
+      background:
+        rgba(10,10,10,0.86);
+
+      border:
+        1px solid
+        rgba(255,30,45,0.25);
+
+      border-radius: 11px;
+
+      box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.5);
+
+      color: #ddd;
+
+      font-size: 10px;
+      font-weight: 800;
+
+      backdrop-filter: blur(12px);
+
+      animation:
+        floating 4s
+        ease-in-out
+        infinite;
+    }
+
+    .floating-card span {
+      color: var(--red);
+    }
+
+    .float-1 {
+      left: -45px;
+      top: 14%;
+    }
+
+    .float-2 {
+      right: -45px;
+      bottom: 20%;
+
+      animation-delay: 1s;
+    }
+
+    .float-3 {
+      left: -25px;
+      bottom: 8%;
+
+      animation-delay: 2s;
+    }
+
+    @keyframes floating {
+
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding:
+        105px
+        25px;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-heading {
+      max-width: 700px;
+
+      margin-bottom: 55px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 12px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size:
+        clamp(
+          28px,
+          4vw,
+          46px
+        );
+
+      line-height: 1.15;
+    }
+
+    .section-heading h2 span {
+      color: var(--red);
+    }
+
+    .section-heading p {
+      margin-top: 15px;
+
+      color: var(--gray);
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 45px;
+
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+
+      color: var(--gray);
+
+      font-size: 14px;
+    }
+
+    .about-box {
+      padding: 35px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111111,
+          #080808
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+      border-radius: 22px;
+
+      box-shadow: var(--shadow);
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .about-box::before {
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      right: -90px;
+      top: -90px;
+
+      border:
+        1px solid
+        rgba(255,30,45,0.25);
+
+      border-radius: 50%;
+    }
+
+    .about-box h3 {
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 20px;
+    }
+
+    .about-box h3 span {
+      color: var(--red);
+    }
+
+    .about-box p {
+      margin-top: 15px;
+
+      color: var(--gray);
+
+      font-size: 13px;
+    }
+
+    .about-line {
+      width: 50px;
+      height: 3px;
+
+      margin-top: 23px;
+
+      background: var(--red);
+
+      box-shadow:
+        0 0 15px
+        rgba(255,30,45,0.6);
+    }
+
+    /* =========================
+       PERSONAL INFO
+    ========================= */
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-top: 35px;
+    }
+
+    .info-card {
+      padding: 22px;
+
+      background: #0d0d0d;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      border-radius: 16px;
+    }
+
+    .info-card small {
+      color: var(--red);
+
+      display: block;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+    .info-card strong {
+      display: block;
+
+      margin-top: 6px;
+
+      color: white;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       SMART ACADEMY
+    ========================= */
+
+    .project-section {
+      position: relative;
+
+      background:
+        linear-gradient(
+          180deg,
+          #090909,
+          #120204,
+          #090909
+        );
+
+      border-top:
+        1px solid
+        rgba(255,30,45,0.08);
+
+      border-bottom:
+        1px solid
+        rgba(255,30,45,0.08);
+    }
+
+    .project-card {
+      position: relative;
+
+      padding: 50px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #151515,
+          #090909
+        );
+
+      border:
+        1px solid
+        rgba(255,30,45,0.2);
+
+      border-radius: 25px;
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,0.5);
+
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      right: -170px;
+      top: -170px;
+
+      border:
+        1px solid
+        rgba(255,30,45,0.2);
+
+      border-radius: 50%;
+    }
+
+    .project-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      right: -110px;
+      top: -110px;
+
+      border:
+        1px solid
+        rgba(255,30,45,0.12);
+
+      border-radius: 50%;
+    }
+
+    .project-label {
+      color: var(--red);
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+    }
+
+    .project-card h2 {
+      margin-top: 12px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size:
+        clamp(
+          32px,
+          5vw,
+          58px
+        );
+    }
+
+    .project-card h2 span {
+      color: var(--red);
+    }
+
+    .project-description {
+      max-width: 700px;
+
+      margin-top: 15px;
+
+      color: var(--gray);
+
+      font-size: 14px;
+    }
+
+    .project-role {
+      display: inline-flex;
+
+      margin-top: 25px;
+
+      padding:
+        8px
+        14px;
+
+      border:
+        1px solid
+        rgba(255,30,45,0.3);
+
+      border-radius: 8px;
+
+      color: #ff6973;
+
+      background:
+        rgba(255,30,45,0.06);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       PROJECT FEATURES
+    ========================= */
+
+    .features-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 17px;
+
+      margin-top: 25px;
+    }
+
+    .feature {
+      padding: 25px;
+
+      background: #0d0d0d;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      border-radius: 17px;
+
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(255,30,45,0.35);
+
+      box-shadow:
+        0 20px 45px
+        rgba(0,0,0,0.4);
+    }
+
+    .feature-icon {
+      font-size: 22px;
+    }
+
+    .feature h3 {
+      margin-top: 13px;
+
+      font-size: 14px;
+    }
+
+    .feature p {
+      margin-top: 7px;
+
+      color: var(--gray-dark);
+
+      font-size: 11px;
+    }
+
+    /* =========================
+       ROLE
+    ========================= */
+
+    .role-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .role-card {
+      padding: 28px;
+
+      background: #0c0c0c;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      border-radius: 18px;
+
+      transition: 0.3s;
+    }
+
+    .role-card:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(255,30,45,0.28);
+    }
+
+    .role-number {
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 11px;
+
+      color: var(--red);
+    }
+
+    .role-card h3 {
+      margin-top: 10px;
+
+      font-size: 16px;
+    }
+
+    .role-card p {
+      margin-top: 9px;
+
+      color: var(--gray);
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       VALUES
+    ========================= */
+
+    .values-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .value-card {
+      padding: 30px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111111,
+          #090909
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      border-radius: 20px;
+    }
+
+    .value-icon {
+      font-size: 30px;
+    }
+
+    .value-card h3 {
+      margin-top: 15px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 15px;
+
+      color: var(--red);
+    }
+
+    .value-card p {
+      margin-top: 8px;
+
+      color: var(--gray);
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       HOBBY
+    ========================= */
+
+    .hobby-box {
+      max-width: 850px;
+
+      margin: auto;
+
+      padding: 45px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(255,30,45,0.18);
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111111,
+          #070707
+        );
+    }
+
+    .football {
+      font-size: 55px;
+    }
+
+    .hobby-box h3 {
+      margin-top: 12px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size: 22px;
+    }
+
+    .hobby-box p {
+      margin-top: 10px;
+
+      color: var(--gray);
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       QUOTE
+    ========================= */
+
+    .quote-section {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .quote-box {
+      max-width: 950px;
+
+      margin: auto;
+
+      padding:
+        55px
+        40px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111111,
+          #080808
+        );
+
+      border:
+        1px solid
+        rgba(255,30,45,0.18);
+
+      border-radius: 25px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .quote-box::before {
+      content: "“";
+
+      position: absolute;
+
+      top: -45px;
+      left: 25px;
+
+      font-family: Georgia, serif;
+
+      font-size: 180px;
+
+      color:
+        rgba(255,30,45,0.06);
+    }
+
+    .quote-box p {
+      position: relative;
+      z-index: 2;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size:
+        clamp(
+          18px,
+          3vw,
+          30px
+        );
+
+      line-height: 1.5;
+    }
+
+    .quote-box span {
+      display: block;
+
+      margin-top: 18px;
+
+      color: var(--red);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background:
+        radial-gradient(
+          circle at center,
+          #220306,
+          #070707 65%
+        );
+
+      text-align: center;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact h2 {
+      margin-top: 12px;
+
+      font-family: "Orbitron", sans-serif;
+
+      font-size:
+        clamp(
+          30px,
+          5vw,
+          55px
+        );
+    }
+
+    .contact h2 span {
+      color: var(--red);
+    }
+
+    .contact p {
+      max-width: 650px;
+
+      margin:
+        18px auto
+        30px;
+
+      color: var(--gray);
+    }
+
+    .contact-btn {
+      display: inline-flex;
+
+      padding:
+        14px
+        25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d60012,
+          #ff2738
+        );
+
+      border-radius: 11px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      box-shadow:
+        0 15px 35px
+        rgba(255,30,45,0.25);
+
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 20px 50px
+        rgba(255,30,45,0.35);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 25px;
+
+      text-align: center;
+
+      background: #030303;
+
+      color: #666;
+
+      font-size: 10px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.05);
+    }
+
+    footer strong {
+      color: #ddd;
+    }
+
+    footer span {
+      color: var(--red);
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    .back-top {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid
+        rgba(255,30,45,0.3);
+
+      border-radius: 12px;
+
+      background:
+        rgba(15,15,15,0.9);
+
+      color: var(--red);
+
+      font-size: 18px;
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition: 0.3s;
+
+      z-index: 500;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-top:hover {
+      background: var(--red);
+
+      color: white;
+
+      transform: translateY(-4px);
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .hero-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        margin-top: 20px;
+      }
+
+      .info-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 20px;
+        right: 20px;
+
+        padding: 20px;
+
+        display: none;
+
+        flex-direction: column;
+
+        background:
+          rgba(10,10,10,0.97);
+
+        border:
+          1px solid
+          rgba(255,30,45,0.18);
+
+        border-radius: 16px;
+
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .role-grid,
+      .values-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .project-card {
+        padding: 30px;
+      }
+
+      .float-1 {
+        left: -10px;
+      }
+
+      .float-2 {
+        right: -10px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding:
+          75px
+          18px;
+      }
+
+      .hero {
+        padding:
+          130px
+          18px
+          75px;
+      }
+
+      .hero h1 {
+        font-size: 39px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .real-photo {
+        height: 430px;
+      }
+
+      .floating-card {
+        display: none;
+      }
+
+      .info-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 10px;
+      }
+
+      .info-card {
+        padding: 17px;
+      }
+
+      .features-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .project-card {
+        padding: 25px;
+      }
+
+      .quote-box {
+        padding:
+          40px
+          22px;
+      }
+
+      .hobby-box {
+        padding: 35px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       BACKGROUND
+  ========================= -->
+
+  <div class="red-glow glow-1"></div>
+  <div class="red-glow glow-2"></div>
+  <div class="red-glow glow-3"></div>
+
+
+  <!-- =========================
+       LOADER
+  ========================= -->
+
+  <div class="loader" id="loader">
+
+    <div class="loader-content">
+
+      <div class="loader-logo">
+        SHARUL<span>.</span>
+      </div>
+
+      <div class="loader-subtitle">
+        SMART ACADEMY
+      </div>
+
+      <div class="loader-bar"></div>
+
+      <div class="loader-subtitle">
+        PROJECT MANAGER
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav class="navbar">
+
+    <div class="nav-container">
+
+      <a
+        href="#home"
+        class="logo"
+      >
+        SHARUL<span>.</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+      >
+        ☰
+      </button>
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="#home">
+          Home
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#project">
+          Smart Academy
+        </a>
+
+        <a href="#role">
+          Role
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section
+    class="hero"
+    id="home"
+  >
+
+    <div class="hero-container">
+
+      <div class="reveal">
+
+        <div class="system-badge">
+          Smart Academy • Project Team
+        </div>
+
+        <h1>
+
+          Mohammad Shahrul
+          <span>Syazwan</span>
+
+        </h1>
+
+        <div class="hero-role">
+          PROJECT MANAGER — SMART ACADEMY
+        </div>
+
+        <p class="hero-description">
+
+          A young project manager contributing to the development of
+          Smart Academy — a digital learning platform designed to create
+          a smarter and more engaging learning experience.
+
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="#project"
+            class="btn btn-red"
+          >
+            Explore Smart Academy
+          </a>
+
+          <a
+            href="#about"
+            class="btn btn-outline"
+          >
+            View Profile
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual reveal">
+
+        <div class="profile-card">
+
+          <div class="photo-frame">
+
+            <img
+              src="profile.jpg"
+              alt="Mohammad Shahrul Syazwan bin Shahrul Sulaiman"
+              class="real-photo"
+            >
+
+            <div class="photo-overlay"></div>
+
+            <div class="photo-info">
+
+              <small>
+                PROJECT MANAGEMENT
+              </small>
+
+              <h3>
+                Shahrul Syazwan
+              </h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="floating-card float-1">
+          <span>●</span>
+          Project Manager
+        </div>
+
+        <div class="floating-card float-2">
+          <span>◆</span>
+          Smart Academy
+        </div>
+
+        <div class="floating-card float-3">
+          <span>⚡</span>
+          Future Builder
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="section-container">
+
+      <div class="section-heading reveal">
+
+        <div class="eyebrow">
+          PROFILE
+        </div>
+
+        <h2>
+          Meet the person
+          <span>behind the project.</span>
+        </h2>
+
+        <p>
+          A young individual with ambitions to grow, learn and build
+          meaningful projects.
+        </p>
+
+      </div>
+
+
+      <div class="about-grid">
+
+        <div class="about-text reveal">
+
+          <p>
+
+            My name is
+            <strong>
+              Mohammad Shahrul Syazwan bin Shahrul Sulaiman
+            </strong>.
+
+            I am a student from
+            <strong>
+              SMK KAP
+            </strong>
+            and currently contribute as the
+            <strong>
+              Project Manager of Smart Academy
+            </strong>.
+
+          </p>
+
+          <p>
+
+            As a project manager, my focus is to help organise the project,
+            coordinate ideas and contribute towards turning Smart Academy
+            from an idea into a real digital learning platform.
+
+          </p>
+
+          <p>
+
+            I believe success comes from continuous effort, prayer,
+            patience and trust in the process.
+
+          </p>
+
+        </div>
+
+
+        <div class="about-box reveal">
+
+          <h3>
+            Young mind.
+            <span>Big ambition.</span>
+          </h3>
+
+          <div class="about-line"></div>
+
+          <p>
+
+            My ambition is simple:
+            to become a successful person while continuing to learn,
+            improve myself and create something meaningful for others.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- PERSONAL INFORMATION -->
+
+      <div class="info-grid">
+
+        <div class="info-card reveal">
+
+          <small>
+            Full Name
+          </small>
+
+          <strong>
+            Mohammad Shahrul Syazwan bin Shahrul Sulaiman
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Age
+          </small>
+
+          <strong>
+            15 Years Old
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Date of Birth
+          </small>
+
+          <strong>
+            3 September 2012
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Gender
+          </small>
+
+          <strong>
+            Male
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            School
+          </small>
+
+          <strong>
+            SMK KAP
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Birthplace
+          </small>
+
+          <strong>
+            Hospital Labuan, Federal Territory of Labuan
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Hobby
+          </small>
+
+          <strong>
+            Playing Football
+          </strong>
+
+        </div>
+
+        <div class="info-card reveal">
+
+          <small>
+            Ambition
+          </small>
+
+          <strong>
+            To Become Successful
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SMART ACADEMY
+  ========================= -->
+
+  <section
+    id="project"
+    class="project-section"
+  >
+
+    <div class="section-container">
+
+      <div class="project-card reveal">
+
+        <div class="project-label">
+          FEATURED PROJECT
+        </div>
+
+        <h2>
+          Smart
+          <span>Academy.</span>
+        </h2>
+
+        <p class="project-description">
+
+          Smart Academy is a digital learning platform designed to bring
+          students and teachers together through modern online learning
+          experiences.
+
+        </p>
+
+        <div class="project-role">
+
+          PROJECT MANAGER
+
+        </div>
+
+
+        <div class="features-grid">
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              🎥
+            </div>
+
+            <h3>
+              Live Classes
+            </h3>
+
+            <p>
+              Interactive online learning experiences.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              📚
+            </div>
+
+            <h3>
+              Lessons
+            </h3>
+
+            <p>
+              Digital learning materials and lessons.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              📝
+            </div>
+
+            <h3>
+              Homework
+            </h3>
+
+            <p>
+              Digital homework and student submissions.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              📊
+            </div>
+
+            <h3>
+              Progress
+            </h3>
+
+            <p>
+              Track learning progress and achievements.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECT MANAGER ROLE
+  ========================= -->
+
+  <section id="role">
+
+    <div class="section-container">
+
+      <div class="section-heading reveal">
+
+        <div class="eyebrow">
+          PROJECT ROLE
+        </div>
+
+        <h2>
+          As the
+          <span>Project Manager</span>
+        </h2>
+
+        <p>
+          Responsibilities that support the development and direction
+          of Smart Academy.
+        </p>
+
+      </div>
+
+
+      <div class="role-grid">
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            01
+          </div>
+
+          <h3>
+            Project Coordination
+          </h3>
+
+          <p>
+            Helping organise tasks, ideas and development activities
+            throughout the project.
+          </p>
+
+        </div>
+
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            02
+          </div>
+
+          <h3>
+            Team Communication
+          </h3>
+
+          <p>
+            Supporting communication between team members and keeping
+            everyone aligned with the project direction.
+          </p>
+
+        </div>
+
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            03
+          </div>
+
+          <h3>
+            Project Vision
+          </h3>
+
+          <p>
+            Helping shape the direction of Smart Academy and its
+            learning experience.
+          </p>
+
+        </div>
+
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            04
+          </div>
+
+          <h3>
+            Planning
+          </h3>
+
+          <p>
+            Helping break the project into manageable features,
+            improvements and milestones.
+          </p>
+
+        </div>
+
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            05
+          </div>
+
+          <h3>
+            Problem Solving
+          </h3>
+
+          <p>
+            Contributing ideas and solutions when challenges appear
+            during project development.
+          </p>
+
+        </div>
+
+
+        <div class="role-card reveal">
+
+          <div class="role-number">
+            06
+          </div>
+
+          <h3>
+            Future Growth
+          </h3>
+
+          <p>
+            Looking for ways Smart Academy can continue to improve
+            and provide better learning experiences.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       VALUES
+  ========================= -->
+
+  <section>
+
+    <div class="section-container">
+
+      <div class="section-heading reveal">
+
+        <div class="eyebrow">
+          PERSONAL VALUES
+        </div>
+
+        <h2>
+          What keeps me
+          <span>moving forward.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="values-grid">
+
+        <div class="value-card reveal">
+
+          <div class="value-icon">
+            🚀
+          </div>
+
+          <h3>
+            Ambition
+          </h3>
+
+          <p>
+            Always aiming to improve and move closer towards my goals.
+          </p>
+
+        </div>
+
+
+        <div class="value-card reveal">
+
+          <div class="value-icon">
+            💪
+          </div>
+
+          <h3>
+            Effort
+          </h3>
+
+          <p>
+            Believing that consistent effort is an important part of success.
+          </p>
+
+        </div>
+
+
+        <div class="value-card reveal">
+
+          <div class="value-icon">
+            🤲
+          </div>
+
+          <h3>
+            Faith
+          </h3>
+
+          <p>
+            Trusting the process after putting in the effort and making
+            the necessary preparations.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       HOBBY
+  ========================= -->
+
+  <section>
+
+    <div class="section-container">
+
+      <div class="hobby-box reveal">
+
+        <div class="football">
+          ⚽
+        </div>
+
+        <h3>
+          Football
+        </h3>
+
+        <p>
+          One of my favourite hobbies is playing football.
+          It teaches teamwork, discipline, communication and determination —
+          qualities that are also important in project management.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MOTTO
+  ========================= -->
+
+  <section class="quote-section">
+
+    <div class="quote-box reveal">
+
+      <p>
+        “Berusaha, Berdoa dan Bertawakal.”
+      </p>
+
+      <span>
+        My Life Motto
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section
+    class="contact"
+    id="contact"
+  >
+
+    <div class="section-container reveal">
+
+      <div class="eyebrow">
+        SMART ACADEMY
+      </div>
+
+      <h2>
+        Building the
+        <span>future of learning.</span>
+      </h2>
+
+      <p>
+
+        Smart Academy represents a journey of learning, teamwork,
+        technology and ambition.
+
+      </p>
+
+      <a
+        href="#project"
+        class="contact-btn"
+      >
+        Explore Smart Academy ↑
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+
+      © <span id="year"></span>
+
+      <strong>
+        Mohammad Shahrul Syazwan
+      </strong>
+
+      • Project Manager — Smart Academy
+
+    </p>
+
+    <p style="margin-top:5px;">
+
+      Learn Smart. Achieve More.
+
+    </p>
+
+  </footer>
+
+
+  <!-- BACK TO TOP -->
+
+  <button
+    class="back-top"
+    id="backTop"
+  >
+    ↑
+  </button>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       LOADER
+    ========================= */
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        setTimeout(
+          () => {
+
+            document
+              .getElementById("loader")
+              .classList.add("hide");
+
+          },
+          700
+        );
+
+      }
+    );
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle(
+          "active"
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(
+        link => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              navLinks.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =========================
+       REVEAL ANIMATION
+    ========================= */
+
+    const revealElements =
+      document.querySelectorAll(
+        ".reveal"
+      );
+
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target
+                  .classList
+                  .add("active");
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach(
+      element => {
+
+        observer.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    const backTop =
+      document.getElementById(
+        "backTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (
+          window.scrollY > 500
+        ) {
+
+          backTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+
+    /* =========================
+       CURRENT YEAR
+    ========================= */
+
+    document
+      .getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+
+    /* =========================
+       CURSOR RED GLOW
+    ========================= */
+
+    const cursorGlow =
+      document.createElement("div");
+
+    cursorGlow.style.position =
+      "fixed";
+
+    cursorGlow.style.width =
+      "250px";
+
+    cursorGlow.style.height =
+      "250px";
+
+    cursorGlow.style.borderRadius =
+      "50%";
+
+    cursorGlow.style.pointerEvents =
+      "none";
+
+    cursorGlow.style.zIndex =
+      "-1";
+
+    cursorGlow.style.background =
+      "radial-gradient(circle, rgba(255,30,45,0.08), transparent 70%)";
+
+    cursorGlow.style.transform =
+      "translate(-50%, -50%)";
+
+    document.body.appendChild(
+      cursorGlow
+    );
+
+
+    document.addEventListener(
+      "mousemove",
+      event => {
+
+        cursorGlow.style.left =
+          event.clientX + "px";
+
+        cursorGlow.style.top =
+          event.clientY + "px";
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
