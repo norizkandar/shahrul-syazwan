@@ -1085,6 +1085,65 @@
     }
 
     /* =========================
+       OPEN APP BUTTON
+    ========================= */
+
+    .project-actions {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 28px;
+
+      position: relative;
+
+      z-index: 5;
+    }
+
+    .open-app-btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding:
+        13px
+        20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b80010,
+          #ff1e2d
+        );
+
+      color: white;
+
+      border-radius: 10px;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      box-shadow:
+        0 12px 30px
+        rgba(255,30,45,0.2);
+
+      transition: 0.3s;
+    }
+
+    .open-app-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+
+      box-shadow:
+        0 18px 40px
+        rgba(255,30,45,0.35);
+    }
+
+    /* =========================
        PROJECT FEATURES
     ========================= */
 
@@ -1432,6 +1491,11 @@
     .contact-btn {
       display: inline-flex;
 
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
       padding:
         14px
         25px;
@@ -1504,7 +1568,8 @@
       width: 44px;
       height: 44px;
 
-      border: 1px solid
+      border:
+        1px solid
         rgba(255,30,45,0.3);
 
       border-radius: 12px;
@@ -1718,6 +1783,15 @@
         padding: 35px 20px;
       }
 
+      .project-actions {
+        flex-direction: column;
+      }
+
+      .open-app-btn,
+      .btn {
+        width: 100%;
+      }
+
     }
 
   </style>
@@ -1853,11 +1927,15 @@
 
         <div class="hero-buttons">
 
+          <!-- DIRECT TO SMART ACADEMY -->
+
           <a
-            href="#project"
+            href="https://norizkandar.github.io/eonix-tech-studio/"
+            target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-red"
           >
-            Explore Smart Academy
+            🚀 Open Smart Academy
           </a>
 
           <a
@@ -2152,8 +2230,22 @@
         </p>
 
         <div class="project-role">
-
           PROJECT MANAGER
+        </div>
+
+
+        <!-- OPEN APP -->
+
+        <div class="project-actions">
+
+          <a
+            href="https://norizkandar.github.io/eonix-tech-studio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="open-app-btn"
+          >
+            🚀 Open Smart Academy
+          </a>
 
         </div>
 
@@ -2540,11 +2632,15 @@
 
       </p>
 
+      <!-- DIRECT TO APP -->
+
       <a
-        href="#project"
+        href="https://norizkandar.github.io/eonix-tech-studio/"
+        target="_blank"
+        rel="noopener noreferrer"
         class="contact-btn"
       >
-        Explore Smart Academy ↑
+        🚀 Open Smart Academy
       </a>
 
     </div>
@@ -2595,9 +2691,7 @@
 
   <script>
 
-    /* =========================
-       LOADER
-    ========================= */
+    /* LOADER */
 
     window.addEventListener(
       "load",
@@ -2618,16 +2712,13 @@
     );
 
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    /* MOBILE MENU */
 
     const menuBtn =
       document.getElementById("menuBtn");
 
     const navLinks =
       document.getElementById("navLinks");
-
 
     menuBtn.addEventListener(
       "click",
@@ -2663,9 +2754,7 @@
       );
 
 
-    /* =========================
-       REVEAL ANIMATION
-    ========================= */
+    /* REVEAL ANIMATION */
 
     const revealElements =
       document.querySelectorAll(
@@ -2715,9 +2804,7 @@
     );
 
 
-    /* =========================
-       BACK TO TOP
-    ========================= */
+    /* BACK TO TOP */
 
     const backTop =
       document.getElementById(
@@ -2762,9 +2849,7 @@
     );
 
 
-    /* =========================
-       CURRENT YEAR
-    ========================= */
+    /* CURRENT YEAR */
 
     document
       .getElementById("year")
@@ -2772,9 +2857,7 @@
       new Date().getFullYear();
 
 
-    /* =========================
-       CURSOR RED GLOW
-    ========================= */
+    /* RED CURSOR GLOW */
 
     const cursorGlow =
       document.createElement("div");
